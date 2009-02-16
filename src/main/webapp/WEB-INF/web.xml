@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app
+   version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <context-param>
+    <param-name>jbossws-config-name</param-name>
+    <param-value>Standard WSSecurity Endpoint</param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>AmazonEC2</servlet-name>
+<!--
+    <servlet-class>org.ovirt.ec2.AmazonEC2</servlet-class>
+-->
+    <servlet-class>org.ovirt.ec2.AmazonEC2Provider</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AmazonEC2</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+<!--
+  <login-config>
+      <auth-method>CLIENT-CERT</auth-method>
+      <realm-name>JBossWSCert</realm-name>
+  </login-config>
+-->
+
+</web-app>
+

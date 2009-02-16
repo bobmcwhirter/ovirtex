@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<deployment xmlns="urn:jboss:bean-deployer:2.0">
+  <bean name="amazon-ec2-ruby-handler" class="org.ovirt.ec2.AmazonEC2RubyHandler"/>
+</deployment>
