@@ -1,0 +1,16 @@
+
+<h1><%= @user %></h1>
+<h2>Public Key: <%= @public_key.name %></h2>
+
+<h3>Public Key</h3>
+
+<pre><%= @public_key.material %></pre>
+
+<h4>Fingerprint</h4>
+<%= @public_key.fingerprint %>
+
+
+<% if flash[:private_key] %>
+  <h3>Private Key</h3>
+  <pre><%= flash[:private_key] %></pre>
+<% end %>

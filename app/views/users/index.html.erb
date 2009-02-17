@@ -1,0 +1,12 @@
+
+<h1>Users</h1>
+
+<% for user in @users %>
+  <% div_for user do %>
+    <%= link_to user, user %>
+  <% end %>
+<% end %>
+
+<div>
+  <%= link_to 'New user', new_user_url %>
+</div>

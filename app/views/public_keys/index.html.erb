@@ -1,0 +1,9 @@
+
+<h1><%= @user %></h1>
+<h2>Public Keys</h2>
+
+<ul>
+  <% for public_key in @public_keys %>
+    <li><%= link_to public_key, [ @user, public_key ]  %></li>
+  <% end %>
+</ul>

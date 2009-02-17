@@ -1,4 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.root :controller=>'home'
+
+  map.resources :certificates
+
+  #map.resources :public_keys
+
+  map.resources :email_addresses
+
+  map.resources :users do |user|
+    user.resources :public_keys
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

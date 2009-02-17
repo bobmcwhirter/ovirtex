@@ -1,16 +1,16 @@
 development:
   adapter: postgresql
-  database: ovirtec2_development
-  username: ovirtec2
-  password: ovirtec2
+  database: ovirtex_development
+  username: ovirtex
+  password: ovirtex
   host: localhost
   encoding: UTF8
 
 production:
   adapter: postgresql
-  database: ovirtec2_production
-  username: ovirtec2
-  password: ovirtec2
+  database: ovirtex_production
+  username: ovirtex
+  password: ovirtex
   host: localhost
   encoding: UTF8
 

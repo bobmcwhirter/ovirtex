@@ -1,0 +1,19 @@
+
+<div>
+  <%= label :user, :display_name, 'Displayed Name' %>
+  <%= text_field :user, :display_name %>
+</div>
+
+<div>
+  <%= label_tag :email_address, 'Email address' %>
+  <%= text_field_tag :email_address, '' %>
+</div>
+
+<div>
+  <%= label :user, :password, 'Password' %>
+  <%= password_field :user, :password %>
+</div>
+
+<div>
+  <%= submit_tag 'Create' %>
+</div>

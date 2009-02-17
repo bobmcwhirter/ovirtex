@@ -1,0 +1,8 @@
+
+<h1><%= @user %></h1>
+<h2>New Public Key</h2>
+
+<% form_for [ @user, @public_key ] do %>
+  <%= render :partial=>'form'%>
+  <%= submit_tag 'Create' %>
+<% end %>
