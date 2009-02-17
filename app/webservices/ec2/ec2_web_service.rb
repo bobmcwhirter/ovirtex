@@ -36,6 +36,10 @@ class Ec2WebService < BaseWebService
 
   def create_key_pair()
     puts "create_key_pair #{request}"
+
+    import 'org.ovirt.ec2.crypto.RSAKeyWriter'
+    writer = RSAKeyWriter.new
+    puts "WRITER --> #{writer}"
     response = create_response
     response.requestId = "8675309"
     response.keyName = request.keyName
