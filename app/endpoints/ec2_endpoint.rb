@@ -15,7 +15,7 @@ class Ec2Endpoint < JBoss::Endpoints::BaseEndpoint
 
 
   def create_key_pair()
-    puts "request is #{request}"
+    log.info( "request is #{request}" )
 
     generator = KeyPairGenerator.get_instance( "RSA" )
     generator.initialize__method( 2048 )
@@ -41,7 +41,7 @@ class Ec2Endpoint < JBoss::Endpoints::BaseEndpoint
     response.keyName = request.keyName
     response.keyFingerprint = public_fingerprint
     response.keyMaterial = private_material
-    puts response.inspect
+    log.debug  response.inspect 
     response
   end
 
