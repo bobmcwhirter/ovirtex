@@ -1,3 +1,5 @@
+import java.security.KeyPairGenerator
+import org.ovirt.ec2.crypto.RSAKeyWriter
 
 puts "loading EC2WebService"
 
@@ -37,14 +39,31 @@ class Ec2WebService < BaseWebService
   def create_key_pair()
     puts "create_key_pair #{request}"
 
-    import 'org.ovirt.ec2.crypto.RSAKeyWriter'
+    generator = KeyPairGenerator.get_instance( "RSA" )
+    generator.initialize__method( 4096 )
+
+    key_pair = generator.genKeyPair
+
     writer = RSAKeyWriter.new
-    puts "WRITER --> #{writer}"
+
+    private_material = writer.write_private_key( key_pair.get_private )
+    public_material  = writer.write_public_key( key_pair.get_public )
+    public_fingerprint = writer.write_public_key_fingerprint( key_pair.get_public )
+
+    #ActiveRecord::Base.transaction do
+    #  public_key = @user.public_keys.create( :name=>params[:name],
+    #                                         :fingerprint=>public_fingerprint,
+    #                                         :material=>public_material )
+    #  flash[:private_key] = private_material
+    #  redirect_to [ @user, public_key ]
+    #end
+
     response = create_response
     response.requestId = "8675309"
     response.keyName = request.keyName
-    response.keyFingerprint = "fingerprintofhtekey"
-    response.keyMaterial = "0xkeymaterial"
+    response.keyFingerprint = public_fingerprint
+    response.keyMaterial = private_material
+    puts response.inspect
     response
   end
 

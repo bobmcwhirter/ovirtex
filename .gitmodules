@@ -1,5 +1,5 @@
-[submodule "vendor/plugins/jbos-rails-plugin"]
-	path = vendor/plugins/jbos-rails-plugin
+[submodule "vendor/plugins/jboss-rails-plugin"]
+	path = vendor/plugins/jboss-rails-plugin
 	url = git://github.com/bobmcwhirter/jboss-rails-plugin.git
 [submodule "vendor/rails"]
 	path = vendor/rails

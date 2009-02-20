@@ -86,6 +86,7 @@ class BaseWebService
       if ( inbound )
         root.get_inbound_security.setVerifySignature( inbound.verify_signature? )
         root.get_inbound_security.setVerifyTimestamp( inbound.verify_timestamp? )
+        root.get_inbound_security.setTrustStore( "#{RAILS_ROOT}/auth/truststore.jks" )
       end
     end
   end
